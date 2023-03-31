@@ -1,0 +1,9 @@
+.teste {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  .primario,
+  .secundario {
+    margin-bottom: 20px;
+  }
+}

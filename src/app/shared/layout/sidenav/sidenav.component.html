@@ -1,0 +1,41 @@
+<div class="sidebar" [ngClass]="{ expanded: isExpanded }">
+  <!-- <div class="sidebar" [ngClass]="{ expanded: isExpanded }"> -->
+
+  <div class="header">
+    <div class="image-header"></div>
+  </div>
+  <div class="content">
+    <div class="toggle" (click)="handleSidebarToggle()">
+      <div alt="menu" class="toggle-button"></div>
+    </div>
+
+    <div class="menu-item">
+      <div class="search">
+        <img src="assets/icons/search.svg" alt="" />
+        <input
+          *ngIf="isExpanded === true"
+          type="text"
+          name=""
+          id=""
+          placeholder="Buscar item"
+        />
+      </div>
+      <div class="row-item">
+        <img src="assets/icons/star.svg" alt="" />
+        <span *ngIf="isExpanded === true">Favoritos</span>
+      </div>
+      <div class="row-item">
+        <img src="assets/icons/chat.svg" alt="" />
+        <span *ngIf="isExpanded === true">Atendimento</span>
+      </div>
+      <div class="row-item">
+        <img src="assets/icons/adjust.svg" alt="" />
+        <span *ngIf="isExpanded === true">Cadastro</span>
+      </div>
+      <div class="row-item">
+        <img src="assets/icons/bank.svg" alt="" />
+        <span *ngIf="isExpanded === true">Demais telas/ rotinas</span>
+      </div>
+    </div>
+  </div>
+</div>
