@@ -1,27 +1,54 @@
-# TestAilos
+# Desafio Ailos
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
+Projeto desafio em angular para Ailos
 
-## Development server
+## Como subir a aplicação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```shell
+# Clonando o projeto
+$ git clone https://github.com/matheussguerra/test-ailos.git
 
-## Code scaffolding
+# Navegar até a pasta raiz do projeto
+$ cd test-ailos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Instalar dependências
+$ npm install
 
-## Build
+# Iniciar servidor
+$ npm start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Abra o navegador em http://localhost:4200/
 
-## Running unit tests
+## Funcionamento
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+O formulário valida se o CPF inserido é válido ou não, caso seja válido o botão é habilitado para realizar a consulta.
+O service retorna dados estáticos independente do CPF informado
 
-## Running end-to-end tests
+## Componentes
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Foi desenvolvido componentes para cards e buttons, os inputs foram criados com estilização global.
 
-## Further help
+## Estrutura de pastas
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+├───app
+│   ├───models
+│   ├───pages
+│   │   ├───components
+│   │   └───home
+│   ├───services
+│   └───shared
+│       ├───components
+│       │   ├───buttom
+│       │   ├───card
+│       │   └───card-info
+│       ├───layout
+│       │   ├───header
+│       │   └───sidenav
+│       └───validators
+├───assets
+│   ├───icons
+│   └───images
+└───environments
+```
