@@ -1,0 +1,34 @@
+<div class="teste">
+  <div class="buttons">
+    <app-buttom class="primario">Primary M</app-buttom>
+    <app-buttom class="primario" [disabled]="true">Primary disabled</app-buttom>
+    <app-buttom class="primario p">Primary P</app-buttom>
+
+    <app-buttom class="secundario">Secondary M</app-buttom>
+    <app-buttom class="secundario" [disabled]="true"
+      >Secondary disabled</app-buttom
+    >
+    <app-buttom class="secundario p">Secondary P</app-buttom>
+    <app-buttom class="terciario">Terciario</app-buttom>
+  </div>
+
+  <div class="inputs">
+    <!-- <app-inputs label="Default input" hint="Texto auxiliar"></app-inputs>
+    <app-inputs
+      label="Disabled input"
+      hint="Texto auxiliar"
+      [disabled]="true"
+    ></app-inputs>
+    <app-inputs
+      label="Invalid input"
+      hint="Texto auxiliar"
+      class="container-invalid"
+    ></app-inputs> -->
+  </div>
+
+  <app-card>
+    <app-card-info></app-card-info>
+    <app-card-info></app-card-info>
+    <app-buttom class="terciario">Terciario</app-buttom>
+  </app-card>
+</div>

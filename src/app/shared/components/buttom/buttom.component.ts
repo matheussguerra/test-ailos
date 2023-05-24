@@ -10,6 +10,7 @@ export class ButtomComponent implements OnInit {
 
   @Input() class: string = '';
   @Input() disabled: boolean | null | undefined;
+  @Input() type: string | undefined = 'button';
 
   ngOnInit(): void {
     console.log(this.disabled);

@@ -1,0 +1,25 @@
+.teste {
+  display: flex;
+  padding: 20px;
+  justify-content: space-evenly;
+
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    .primario,
+    .secundario {
+      margin-bottom: 20px;
+    }
+  }
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .inputs > * {
+    margin-bottom: 20px;
+  }
+}

@@ -1,11 +1,98 @@
-<div class="teste">
-  <app-buttom class="primario">Primary M</app-buttom>
-  <app-buttom class="primario" [disabled]="true">Primary disabled</app-buttom>
-  <app-buttom class="primario p">Primary P</app-buttom>
+<div class="content">
+  <div class="stepper">
+    <div class="stepper">
+      <div class="step active-step">
+        <div class="step-circle"></div>
+        <div class="step-title">Início</div>
+        <div class="step-bar-left"></div>
+        <div class="step-bar-right"></div>
+      </div>
+      <div class="step">
+        <div class="step-circle"></div>
+        <div class="step-title">Documentos</div>
+        <div class="step-bar-left"></div>
+        <div class="step-bar-right"></div>
+      </div>
+      <div class="step">
+        <div class="step-circle"></div>
+        <div class="step-title">Dados cadastrais</div>
+        <div class="step-bar-left"></div>
+        <div class="step-bar-right"></div>
+      </div>
+      <div class="step">
+        <div class="step-circle"></div>
+        <div class="step-title">Admissão</div>
+        <div class="step-bar-left"></div>
+        <div class="step-bar-right"></div>
+      </div>
+    </div>
+  </div>
 
-  <app-buttom class="secundario">Secondary M</app-buttom>
-  <app-buttom class="secundario" [disabled]="true"
-    >Secondary disabled</app-buttom
-  >
-  <app-buttom class="secundario p">Secondary P</app-buttom>
+  <div class="text">
+    <span class="page-title"> Informe o CPF do futuro cooperado (a) </span>
+    <span class="page-subtitle">
+      Se necessário, você poderá duplicar uma conta existente ou pausar e
+      retomar este cadastro futuramente. Digite apenas os números (sem pontos ou
+      traços).
+    </span>
+  </div>
+
+  <form [formGroup]="searchByCpfForm" (ngSubmit)="onSubmit()" class="form">
+    <div
+      class="{{
+        cpf?.invalid && cpf?.touched ? 'container-invalid' : 'container-input'
+      }}"
+    >
+      <label for="cpf" class="label">CPF</label>
+      <input
+        placeholder="000.000.000-00"
+        [inputMask]="cpfInputMask"
+        formControlName="cpf"
+        id="teste"
+        maxlength="14"
+      />
+      <span class="hint" *ngIf="cpf?.invalid && cpf?.touched">
+        Informe um CPF válido</span
+      >
+    </div>
+
+    <div class="button">
+      <app-buttom type="submit" class="primario p"
+        >Consultar por CPF</app-buttom
+      >
+    </div>
+  </form>
+
+  <div class="cards" *ngIf="this.user">
+    <app-card
+      id="element"
+      title="Situação cadastral do CPF"
+      subtitle="Consulta na Receita Federal"
+    >
+      <app-card-info
+        label="Nome"
+        value="{{ this.user.name }}"
+        icon="person"
+      ></app-card-info>
+      <app-card-info
+        label="Situação do CPF"
+        value="{{ this.user.status }}"
+        icon="check"
+      ></app-card-info>
+    </app-card>
+
+    <app-card
+      id="element"
+      *ngFor="let account of this.user.accounts"
+      title="{{ account.accountType }}"
+      subtitle="{{ account.bankName }}"
+    >
+      <app-card-info
+        label="Número da conta"
+        value="{{ account.accountNumber }}"
+        icon="credit-card"
+      ></app-card-info>
+      <app-buttom class="terciario">Duplicar conta</app-buttom>
+    </app-card>
+  </div>
 </div>
