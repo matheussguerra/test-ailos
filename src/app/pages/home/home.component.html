@@ -48,7 +48,7 @@
         placeholder="000.000.000-00"
         [inputMask]="cpfInputMask"
         formControlName="cpf"
-        id="teste"
+        id="cpf"
         maxlength="14"
       />
       <span class="hint" *ngIf="cpf?.invalid && cpf?.touched">
@@ -57,13 +57,16 @@
     </div>
 
     <div class="button">
-      <app-buttom type="submit" class="primario p"
+      <app-buttom
+        type="submit"
+        class="primario p"
+        [disabled]="searchByCpfForm.invalid"
         >Consultar por CPF</app-buttom
       >
     </div>
   </form>
 
-  <div class="cards" *ngIf="this.user">
+  <div class="cards" *ngIf="user">
     <app-card
       id="element"
       title="Situação cadastral do CPF"
@@ -71,25 +74,25 @@
     >
       <app-card-info
         label="Nome"
-        value="{{ this.user.name }}"
+        [value]="user.name"
         icon="person"
       ></app-card-info>
       <app-card-info
         label="Situação do CPF"
-        value="{{ this.user.status }}"
+        [value]="user.status"
         icon="check"
       ></app-card-info>
     </app-card>
 
     <app-card
       id="element"
-      *ngFor="let account of this.user.accounts"
-      title="{{ account.accountType }}"
-      subtitle="{{ account.bankName }}"
+      *ngFor="let account of user.accounts"
+      [title]="account.accountType"
+      [subtitle]="account.bankName"
     >
       <app-card-info
         label="Número da conta"
-        value="{{ account.accountNumber }}"
+        [value]="account.accountNumber"
         icon="credit-card"
       ></app-card-info>
       <app-buttom class="terciario">Duplicar conta</app-buttom>

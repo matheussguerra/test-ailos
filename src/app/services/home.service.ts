@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Account } from '../models/account';
 import { User } from '../models/User';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ import { User } from '../models/User';
 export class HomeService {
   constructor() {}
 
-  public getData(cpf: any): User {
+  public getData(cpf: any): Observable<User> {
     const accounts: Account[] = [
       {
         accountType: 'Conta aplicação',
@@ -29,6 +30,6 @@ export class HomeService {
       accounts,
     };
 
-    return user;
+    return of(user);
   }
 }

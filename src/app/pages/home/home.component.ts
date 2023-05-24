@@ -32,9 +32,11 @@ export class HomeComponent implements OnInit {
   cpfInputMask = createMask('999.999.999-99');
 
   onSubmit(): void {
-    this.user = this.homeService.getData(
-      this.searchByCpfForm.get('cpf')?.value
-    );
+    this.homeService
+      .getData(this.searchByCpfForm.value.cpf)
+      .subscribe((user) => {
+        this.user = user;
+      });
   }
 
   ngOnInit(): void {}

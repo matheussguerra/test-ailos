@@ -1,9 +1,9 @@
 import { Account } from './account';
 
 export interface User {
-  id: String;
-  cpf: String;
-  name: String;
-  status: String;
+  id: string;
+  cpf: string;
+  name: string;
+  status: string;
   accounts: Account[];
 }
